@@ -5,7 +5,7 @@
 }
 
 body {
-  font-size: 62.5%;
+  font-size: 100%;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
   font-style: normal;
@@ -13,6 +13,30 @@ body {
 }
 .content {
   padding: 25px 0px 0px 25px;
+}
+
+p {
+  padding-top: 20px;
+}
+
+ul {
+  padding-top: 20px;
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+}
+
+a:link,
+a:visited {
+  color: #f6f9fc;
+}
+
+img.desaturate {
+  width: 35px;
+  margin-right: 5px;
+  filter: grayscale(50%);
 }
 
 /* BACKGROUND GRADIENT DESIGN */
