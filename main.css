@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  background: #f6f9fc 60%;
+}
+
+/* 5 rows 200px, 10 10% columns*/
+.stripes {
+  display: grid;
+  grid: repeat(5, 200px) / repeat (10, 1fr);
+  transform: skewY(-12deg);
+  transform-origin: 0;
+  background: linear-gradient(
+    #507eb1,
+    #709dc7 10%,
+    #dde9f5 40%,
+    #eaf2f9 50%,
+    #f6f9fc 60%
+  );
+  width: 100vw;
+  height: 100vh;
+}
+
+.stripes :nth-child(1) {
+  grid-column: span 3;
+}
+
+/* start and end values for rows/columns in single declaration */
+/* row-start, column-start, row-end, column-end */
+.stripes :nth-child(2) {
+  grid-area: 3 / span 3 / auto / -1;
+}
+
+.stripes :nth-child(3) {
+  grid-row: 4;
+  grid-column: span 5;
+}
