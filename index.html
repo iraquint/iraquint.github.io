@@ -1,52 +1,282 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" type="text/css" href="main.css" />
-    <link rel="icon" href="../img/q.png" />
-    <title>Ira Quint</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-129736868-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ira Quint - Software Engineer</title>
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #333;
+            --secondary-color: #555;
+            --accent-color: #0077cc;
+            --background-color: #fafafa;
+            --text-color: #333;
+            --spacing-unit: 1rem;
+        }
 
-      gtag("config", "UA-129736868-1");
-    </script>
-  </head>
-  <body>
-    <div class="stripes">
-      <div class="content">
-        <h1>Ira Quint</h1>
-        <p>
-          Software at <a href="http://www.spanishdict.com/">SpanishDict</a>,
-          conversations with <a href="http://freeic.org/">FreeIC</a>.
-        </p>
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/iraquint">
-              <img src="../img/linkedin.png" class="desaturate"
-            /></a>
-          </li>
-          <li>
-            <a href="https://github.com/iraquint">
-              <img src="../img/github.png" class="desaturate"
-            /></a>
-          </li>
-          <li>
-            <a href="mailto:ira.j.quint@gmail.com">
-              <img src="../img/gmail.png" class="desaturate"
-            /></a>
-          </li>
-        </ul>
-      </div>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .profile-image {
+            margin: 0 auto calc(var(--spacing-unit) * 2);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-unit);
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        /* Main content */
+        .main-content {
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+
+        .about {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .about {
+                text-align: left;
+            }
+        }
+
+        /* Links section */
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 1.5);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .resume-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .resume-link:hover {
+            background-color: #005fa3;
+            transform: translateY(-2px);
+        }
+
+        /* Social links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit));
+        }
+
+        .social-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .social-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* Company links */
+        .company-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .company-link:hover {
+            color: #005fa3;
+        }
+        
+        .company-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .company-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #005fa3;
+        }
+        
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: calc(var(--spacing-unit) * 3);
+            color: var(--secondary-color);
+            margin-top: auto;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #f5f5f5;
+                --primary-color: #f5f5f5;
+                --secondary-color: #aaaaaa;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: calc(var(--spacing-unit) * 1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-image">
+                <img src="assets/me.jpg" alt="Ira Quint">
+            </div>
+            <h1>Ira Quint</h1>
+            <p class="subtitle">Software Developer</p>
+        </header>
+
+        <div class="main-content">
+            <div class="about">
+                <p>
+                    Hello 👋 — I'm a product engineer based in Washington, D.C. I've worked across all parts of the stack, with a strong focus on the frontend — I love thinking about the user experience from start to finish. Previously I've worked at <a href="https://spanishdictionary.com/">SpanishDictionary</a>, <a href="https://www.golfplusvr.com/">GOLF+</a>, and <a href="https://heytaco.com/">HeyTaco</a>.
+                </p>
+                <p>
+                    In my free time, you can find me biking around DC, teaching yoga, or spending time at Meridian Hill park.
+                </p>
+            </div>
+
+            <div class="links-section">    
+                <div class="social-links">
+                    <a href="assets/ira_quint_resume_march_2025.pdf" class="social-link" target="_blank" rel="noopener">Resume</a>
+                    <a href="https://github.com/iraquint" class="social-link" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/iraquint/" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://twitter.com/ira_quint" class="social-link" target="_blank" rel="noopener">X</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </body>
+</body>
 </html>
